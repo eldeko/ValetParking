@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Exceptios\**" />
+    <Compile Remove="Util\**" />
+    <EmbeddedResource Remove="Exceptios\**" />
+    <EmbeddedResource Remove="Util\**" />
+    <None Remove="Exceptios\**" />
+    <None Remove="Util\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="MailKit" Version="2.5.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Hosting.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.8">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Options" Version="3.1.2" />
+    <PackageReference Include="MimeKit" Version="2.5.1" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="5.6.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\ValetParking.Dto\ValetParking.Dto.csproj" />
+    <ProjectReference Include="..\..\Data\ValetParking.Persistence\ValetParking.Persistence.csproj" />
+    <ProjectReference Include="..\ValetParking.Models\ValetParking.Models.csproj" />
+  </ItemGroup>
+
+</Project>

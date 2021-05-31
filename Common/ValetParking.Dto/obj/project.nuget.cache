@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9POwFuvPfEKRMCjrGX8a9Yzj6iqR10Jpip3t/0KEe24dsvulkIsl0z1LUVK4YPv8OdwpQezdejLNAfx6MYKhuA==",
+  "dgSpecHash": "GA4lcNBa222uehoZKyckwdRs8kpqRZ/WLw7RXL0lZyBlOui3UhLZk4s7u4gOscEi8lZ5SkFRmFFKecObj4sWyw==",
   "success": true,
-  "projectFilePath": "C:\\ValetParking\\Common\\ValetParking.Dto\\ValetParking.Dto.csproj",
+  "projectFilePath": "C:\\Valet\\ValetParking\\Common\\ValetParking.Dto\\ValetParking.Dto.csproj",
   "expectedPackageFiles": [
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"

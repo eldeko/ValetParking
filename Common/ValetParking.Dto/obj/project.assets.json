@@ -186,11 +186,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\ValetParking\\Common\\ValetParking.Dto\\ValetParking.Dto.csproj",
+      "projectUniqueName": "C:\\Valet\\ValetParking\\Common\\ValetParking.Dto\\ValetParking.Dto.csproj",
       "projectName": "ValetParking.Dto",
-      "projectPath": "C:\\ValetParking\\Common\\ValetParking.Dto\\ValetParking.Dto.csproj",
+      "projectPath": "C:\\Valet\\ValetParking\\Common\\ValetParking.Dto\\ValetParking.Dto.csproj",
       "packagesPath": "C:\\Users\\facundo.demarsico\\.nuget\\packages\\",
-      "outputPath": "C:\\ValetParking\\Common\\ValetParking.Dto\\obj\\",
+      "outputPath": "C:\\Valet\\ValetParking\\Common\\ValetParking.Dto\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

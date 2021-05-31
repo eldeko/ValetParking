@@ -1,8 +1,0 @@
-C:\ValetParking\Common\ValetParking.Dto\bin\Debug\netstandard2.0\ValetParking.Dto.deps.json
-C:\ValetParking\Common\ValetParking.Dto\bin\Debug\netstandard2.0\ValetParking.Dto.dll
-C:\ValetParking\Common\ValetParking.Dto\bin\Debug\netstandard2.0\ValetParking.Dto.pdb
-C:\ValetParking\Common\ValetParking.Dto\obj\Debug\netstandard2.0\ValetParking.Dto.AssemblyInfoInputs.cache
-C:\ValetParking\Common\ValetParking.Dto\obj\Debug\netstandard2.0\ValetParking.Dto.AssemblyInfo.cs
-C:\ValetParking\Common\ValetParking.Dto\obj\Debug\netstandard2.0\ValetParking.Dto.csproj.CoreCompileInputs.cache
-C:\ValetParking\Common\ValetParking.Dto\obj\Debug\netstandard2.0\ValetParking.Dto.dll
-C:\ValetParking\Common\ValetParking.Dto\obj\Debug\netstandard2.0\ValetParking.Dto.pdb

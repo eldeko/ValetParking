@@ -5480,11 +5480,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\ValetParking\\Core\\ValetParking.Models\\ValetParking.Models.csproj",
+      "projectUniqueName": "C:\\Valet\\ValetParking\\Core\\ValetParking.Models\\ValetParking.Models.csproj",
       "projectName": "ValetParking.Models",
-      "projectPath": "C:\\ValetParking\\Core\\ValetParking.Models\\ValetParking.Models.csproj",
+      "projectPath": "C:\\Valet\\ValetParking\\Core\\ValetParking.Models\\ValetParking.Models.csproj",
       "packagesPath": "C:\\Users\\facundo.demarsico\\.nuget\\packages\\",
-      "outputPath": "C:\\ValetParking\\Core\\ValetParking.Models\\obj\\",
+      "outputPath": "C:\\Valet\\ValetParking\\Core\\ValetParking.Models\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -5506,8 +5506,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\ValetParking\\Data\\ValetParking.Persistence\\ValetParking.Persistence.csproj": {
-              "projectPath": "C:\\ValetParking\\Data\\ValetParking.Persistence\\ValetParking.Persistence.csproj"
+            "C:\\Valet\\ValetParking\\Data\\ValetParking.Persistence\\ValetParking.Persistence.csproj": {
+              "projectPath": "C:\\Valet\\ValetParking\\Data\\ValetParking.Persistence\\ValetParking.Persistence.csproj"
             }
           }
         }

@@ -107,7 +107,7 @@ namespace ValetParking.WebApi
 
             #region Dependency configuration
 
-            //services.AddDbContext<PassDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("PassDatabases")));
+            //services.AddDbContext<PassDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("OLDConfig???")));
             services.AddScoped<IConfigurationRepository, ConfigurationRepository>();
             services.AddScoped<IUnitOfWorkFactory, UnitOfWorkFactory>();
             services.AddScoped<IUserRepository, UserRepository>();

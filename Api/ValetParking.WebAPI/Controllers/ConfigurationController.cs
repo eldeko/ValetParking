@@ -9,7 +9,8 @@
     using System.Collections.Generic;
     using System.Net;
 
-    [Route("api/v{version:apiVersion}/configuration")]
+    //[Route("api/v{version:apiVersion}/configuration")]
+    [Route("api/configuration")]
     public class ConfigurationController : BaseApiController
     {
 

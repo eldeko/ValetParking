@@ -101,7 +101,7 @@ namespace ValetParking.BusinessLogic.MappingExtensions
             return new LoggedUserDto
             {               
                 Email = userEntity.Email,            
-                FullName = userEntity.Name + userEntity.Surname,               
+                FullName = userEntity.Name + " " + userEntity.Surname,               
                 Token = userEntity.Token,
                 AvatarURL = userEntity.AvatarURL,
                 UserType = userEntity.UserType.ConvertEnum<Dto.Enums.UserTypes>()

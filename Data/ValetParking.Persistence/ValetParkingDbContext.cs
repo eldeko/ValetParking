@@ -7,7 +7,7 @@ namespace ValetParking.Persistence
     {       
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-         optionsBuilder.UseSqlServer("Data Source=NGL7528DXW00;Persist Security Info=False;User ID=passUser;Password=Medellin1!;Initial Catalog=ValetParkingDB;");
+         optionsBuilder.UseSqlServer("Data Source=EZE1-LLN-B02894;Persist Security Info=False;User ID=sa;Password=ElDeko87;Initial Catalog=ValetParkingDB;");
         }
 
         public DbSet<ConfigurationEntity> ConfigurationEntities { get; set; }

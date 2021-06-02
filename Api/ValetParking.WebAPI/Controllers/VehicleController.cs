@@ -10,7 +10,8 @@ using ValetParking.BusinessLogic.MappingExtensions;
 namespace ValetParking.WebApi.Controllers
 {
     [Authorize]
-    [Route("api/v{version:apiVersion}/vehicle")]
+    //[Route("api/v{version:apiVersion}/vehicle")]
+    [Route("api/vehicle")]
     public class VehicleController : BaseApiController
     {
         private readonly IVehicleService _vehicleService;

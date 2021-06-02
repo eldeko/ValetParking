@@ -14,7 +14,8 @@ namespace ValetParking.WebApi.Controllers
 {
     [Authorize]
     [ApiController]
-    [Route("api/v{version:apiVersion}/user")]
+    //[Route("api/v{version:apiVersion}/user")]
+    [Route("api/user")]
     public class UserController : BaseApiController
     {
         private readonly IUserService _userService;
@@ -26,7 +27,7 @@ namespace ValetParking.WebApi.Controllers
             _passRecoveryManager = passRecoveryManager;
         }
         
-        [HttpGet] [AllowAnonymous]
+        [HttpGet]
         [ProducesResponseType(typeof(IList<UserDto>), (int)HttpStatusCode.OK)]
         public IActionResult GetAll()
         {
@@ -36,7 +37,9 @@ namespace ValetParking.WebApi.Controllers
             return Ok(usersDtoList);
         }
         
-        [HttpGet("getById")] [AllowAnonymous]
+        //TODO: Fix and Or Update swagger to see if it works with JWT now...
+
+        [HttpGet("getById")]
         [ProducesResponseType(typeof(UserDto), (int)HttpStatusCode.OK)]
         public IActionResult GetById(string userId)
         {
@@ -84,6 +87,9 @@ namespace ValetParking.WebApi.Controllers
             IActionResult response;
             try
             {
+                //TODO: Always return OK with a message that if there is a user with that email,
+                //they will get a mail with instructions.
+
                 var user = _userService.IsExistingUser(email);
 
                 if (!user)

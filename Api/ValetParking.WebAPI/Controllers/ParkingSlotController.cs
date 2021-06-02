@@ -12,7 +12,8 @@ using System.Net;
 namespace ValetParking.WebApi.Controllers
 {
     [Authorize]
-    [Route("api/v{version:apiVersion}/parkingSlot")]
+    //[Route("api/v{version:apiVersion}/parkingSlot")]
+    [Route("api/parkingSlot")]
     public class ParkingSlotController : BaseApiController
     {
         private readonly IParkingSlotService _parkingSlotService;

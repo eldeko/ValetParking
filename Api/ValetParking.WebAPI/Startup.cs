@@ -45,7 +45,7 @@ namespace ValetParking.WebApi
             services.AddSwaggerGen(c =>
             {
                 c.CustomSchemaIds(x => x.FullName);
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Wayalabs Pass", Version = "V1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Valet Parking", Version = "V1" });
                 c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
                 c.AddSecurityDefinition("Bearer",
                     new OpenApiSecurityScheme
@@ -139,7 +139,8 @@ namespace ValetParking.WebApi
 
             #endregion Mailer
 
-            SetupApiVersion(services);
+           // Enable for api versioning
+           // SetupApiVersion(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

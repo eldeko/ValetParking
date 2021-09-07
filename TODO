@@ -8,5 +8,9 @@ REMOVE AUTOMAPPER! (Go full extension methods)
 
 Dependency injection in startup is dirty.
 
+SQL connection is dirty (startup.cs and DBContext has connection id)
+
+Implement a key vault service
+
 Reservations in SQL shows as INT ID, but in code is GUID ???
 

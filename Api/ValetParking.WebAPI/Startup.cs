@@ -117,7 +117,7 @@ namespace ValetParking.WebApi
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IVehicleRepository, VehicleRepository>();
 
-            LogicDependency.RegistryDependency(services, Configuration);
+            //LogicDependency.RegistryDependency(services, Configuration);
 
             #endregion Dependency configuration
 
@@ -135,7 +135,7 @@ namespace ValetParking.WebApi
             #region Mailer
 
             services.Configure<EmailSettings>(Configuration.GetSection("EmailSettings"));
-            services.AddSingleton<IEmailSender, EmailSender>();
+            services.AddScoped<IEmailSender, EmailSender>();
 
             #endregion Mailer
 
@@ -144,7 +144,8 @@ namespace ValetParking.WebApi
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+       
+        public static void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
             {

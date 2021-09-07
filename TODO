@@ -1,0 +1,12 @@
+TODO just after getting the pipeline to work:
+
+JWT not working properly (User registration OK and login provides token, but does not validate) . Must update JWT implementation and Swagger.
+
+Decide if remove unit of work (I remember cross dependency issues with services...)
+
+REMOVE AUTOMAPPER! (Go full extension methods)
+
+Dependency injection in startup is dirty.
+
+Reservations in SQL shows as INT ID, but in code is GUID ???
+

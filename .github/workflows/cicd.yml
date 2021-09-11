@@ -27,6 +27,7 @@ jobs:
     - uses: mr-smithers-excellent/docker-build-push@v5
       with:
        image: valetparking
+       tags: latest
        registry: 331054789182.dkr.ecr.us-east-2.amazonaws.com
 env:
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}

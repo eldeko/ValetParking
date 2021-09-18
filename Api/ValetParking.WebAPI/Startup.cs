@@ -6,7 +6,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using ValetParking.BusinessLogic.Dependency;
 using ValetParking.BusinessLogic.Helpers;
 using ValetParking.Persistence.Repositories;
 using ValetParking.Persistence.Repositories.Contracts;
@@ -17,6 +16,9 @@ using ValetParking.WebApi.Mappers;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Reflection;
+using ValetParking.BusinessLogic.Interfaces;
+using ValetParking.BusinessLogic.Business;
 
 namespace ValetParking.WebApi
 {
@@ -108,6 +110,8 @@ namespace ValetParking.WebApi
             #region Dependency configuration
 
             //services.AddDbContext<PassDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("OLDConfig???")));
+
+            //TODO: Implement "For each interface, register its service" method
             services.AddScoped<IConfigurationRepository, ConfigurationRepository>();
             services.AddScoped<IUnitOfWorkFactory, UnitOfWorkFactory>();
             services.AddScoped<IUserRepository, UserRepository>();
@@ -117,13 +121,17 @@ namespace ValetParking.WebApi
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IVehicleRepository, VehicleRepository>();
 
-            //LogicDependency.RegistryDependency(services, Configuration);
+            services.AddScoped<IConfigurationRepository, ConfigurationRepository>();
+           
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IParkingSlotService, ParkingSlotService>();
+            services.AddScoped<IPasswordRecoveryManager, PasswordRecoveryManager>();
+            services.AddScoped<IReservationService, ReservationService>();
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IVehicleService, VehicleService>();
 
-            #endregion Dependency configuration
 
-            //#region Security
-            //SetupSecurity(services);
-            //#endregion
+            #endregion Dependency configuration    
 
             #region Mapper
 
@@ -143,8 +151,6 @@ namespace ValetParking.WebApi
            // SetupApiVersion(services);
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-       
         public static void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())

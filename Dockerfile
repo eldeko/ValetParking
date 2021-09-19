@@ -6,10 +6,7 @@ COPY . ./
 RUN dotnet publish -c Release -o out
 
 # Build runtime image
-FROM mcr.microsoft.com/dotnet/core/aspnet:5.0
+FROM mcr.microsoft.com/dotnet/core/aspnet:5.0-buster-slim
 WORKDIR /app
 COPY --from=build-env /app/out .
 ENTRYPOINT ["dotnet", "ValetParking.WebApi.dll"]
-
-
-FROM mcr.microsoft.com/dotnet/sdk:5.0-buster-slim AS build

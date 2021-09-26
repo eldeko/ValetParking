@@ -19,6 +19,7 @@ using System.Text;
 using System.Reflection;
 using ValetParking.BusinessLogic.Interfaces;
 using ValetParking.BusinessLogic.Business;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ValetParking.WebApi
 {
@@ -44,36 +45,39 @@ namespace ValetParking.WebApi
 
             #region Swagger
 
-            services.AddSwaggerGen(c =>
+            services.AddSwaggerGen(swagger =>
             {
-                c.CustomSchemaIds(x => x.FullName);
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Valet Parking", Version = "V1" });
-                c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
-                c.AddSecurityDefinition("Bearer",
-                    new OpenApiSecurityScheme
-                    {
-                        In = ParameterLocation.Header,
-                        Type = SecuritySchemeType.Http,
-                        Description = "Please enter into field the word 'Bearer' following by space and JWT",
-                        Name = "Authorization",
-                        Scheme = "Bearer",
-                        Reference = new OpenApiReference
-                        {
-                            Type = ReferenceType.SecurityScheme,
-                            Id = "Bearer"
-                        }
-                    });
-                c.AddSecurityRequirement(new OpenApiSecurityRequirement{
+                swagger.CustomSchemaIds(x => x.FullName);
+                //This is to generate the Default UI of Swagger Documentation    
+                swagger.SwaggerDoc("v1", new OpenApiInfo { Title = "Valet Parking", Version = "V1" });
+                swagger.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
+                // To Enable authorization using Swagger (JWT)    
+                swagger.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
                 {
-        new OpenApiSecurityScheme{
-            Reference = new OpenApiReference{
-                Id = "Bearer", //The name of the previously defined security scheme.
-				Type = ReferenceType.SecurityScheme
-            }
-        },new List<string>()
-    }
-            });
-            });
+                    Name = "Authorization",
+                    Type = SecuritySchemeType.ApiKey,
+                    Scheme = "Bearer",
+                    BearerFormat = "JWT",
+                    In = ParameterLocation.Header,
+                    Description = "Enter 'Bearer' [space] and then your valid token in the text input below.\r\n\r\nExample: \"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9\"",
+                });
+                swagger.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                          new OpenApiSecurityScheme
+                            {
+                                Reference = new OpenApiReference
+                                {
+                                    Type = ReferenceType.SecurityScheme,
+                                    Id = "Bearer"
+                                }
+                            },
+                            new string[] {}
+
+                    }
+                });
+            
+        });
 
             #endregion Swagger
 
@@ -103,6 +107,17 @@ namespace ValetParking.WebApi
                     ValidateIssuer = false,
                     ValidateAudience = false
                 };
+            });
+
+            services.AddAuthorization(options =>
+            {
+                var defaultAuthorizationPolicyBuilder = new AuthorizationPolicyBuilder(
+                    JwtBearerDefaults.AuthenticationScheme);
+
+                defaultAuthorizationPolicyBuilder =
+                    defaultAuthorizationPolicyBuilder.RequireAuthenticatedUser();
+
+                options.DefaultPolicy = defaultAuthorizationPolicyBuilder.Build();
             });
 
             #endregion JSON Web Token
@@ -151,33 +166,33 @@ namespace ValetParking.WebApi
            // SetupApiVersion(services);
         }
 
-        public static void Configure(IApplicationBuilder app, IHostingEnvironment env)
-        {
-            if (env.IsDevelopment())
-            {
+        public static void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        {            
                 app.UseCors(options => options.WithOrigins("*")
-                  .AllowAnyMethod().AllowAnyHeader());
+                   .AllowAnyMethod().AllowAnyHeader());
+
                 app.UseDeveloperExceptionPage();
-            }
+            
 
             // set up exception Middleware
             app.UseMiddleware<PassExceptionMiddleware>();
-            app.UseRouting();
+            
             app.UseHttpsRedirection();
             app.UseAuthentication();
+            app.UseRouting();
             app.UseAuthorization();
             app.UseStaticFiles();
-
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "post API V1");
                 c.RoutePrefix = string.Empty;
             });
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+          
         }
 
         #region Private methods

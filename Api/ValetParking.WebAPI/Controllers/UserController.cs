@@ -26,7 +26,8 @@ namespace ValetParking.WebApi.Controllers
             _userService = userService;
             _passRecoveryManager = passRecoveryManager;
         }
-        
+
+       
         [HttpGet]
         [ProducesResponseType(typeof(IList<UserDto>), (int)HttpStatusCode.OK)]
         public IActionResult GetAll()

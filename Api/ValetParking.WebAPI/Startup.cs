@@ -197,21 +197,21 @@ namespace ValetParking.WebApi
 
         #region Private methods
 
-        /// <summary>
-        /// Configure api version for each controller
-        /// </summary>
-        /// <param name="services"></param>
-        private void SetupApiVersion(IServiceCollection services)
-        {
-            var apiVersion = new ApiVersion(1, 0);
-            services.AddApiVersioning(options =>
-            {
-                options.ReportApiVersions = true;
-                options.DefaultApiVersion = new ApiVersion(1, 0);
-                options.Conventions.Controller<ConfigurationController>().HasApiVersion(apiVersion);
-                options.Conventions.Controller<UserController>().HasApiVersion(apiVersion);
-            });
-        }
+        ///// <summary>
+        ///// Configure api version for each controller
+        ///// </summary>
+        ///// <param name="services"></param>
+        //private void SetupApiVersion(IServiceCollection services)
+        //{
+        //    var apiVersion = new ApiVersion(1, 0);
+        //    services.AddApiVersioning(options =>
+        //    {
+        //        options.ReportApiVersions = true;
+        //        options.DefaultApiVersion = new ApiVersion(1, 0);
+        //        options.Conventions.Controller<ConfigurationController>().HasApiVersion(apiVersion);
+        //        options.Conventions.Controller<UserController>().HasApiVersion(apiVersion);
+        //    });
+        //}
 
         #endregion Private methods
     }
